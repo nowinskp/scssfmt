@@ -1,3 +1,7 @@
+## v1.0.7
+
+- Change default indentation to 4 spaces
+
 ## v1.0.6
 
 - Refactor

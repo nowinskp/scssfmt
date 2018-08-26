@@ -2,14 +2,14 @@ const os = require('os')
 const postcss = require('postcss')
 const scss = require('postcss-scss')
 
-const NEW_LINE = os.EOL, NO_SPACES = '', ONE_SPACE = ' ', TWO_SPACES = '  '
+const NEW_LINE = os.EOL, NO_SPACES = '', ONE_SPACE = ' ', TARGET_INDENT = '    '
 const isCustomProperty = prop => prop.slice(0, 2) === '--'
 const isSassVal = prop => /^\$/.test(prop)
 const hasPlusInsideParens = selector => /\(.+\+.+\)/.test(selector)
 const isAttrSelector = selector => /\[.+\]/.test(selector)
 const isOneLinearRule = rule => rule.nodes.length === 1 && rule.nodes[0].type === 'decl' && !rule.nodes[0].raws.before.match(/\n/) && !rule.raws.after.match(/\n/) && !rule.raws.between.match(/\n/) && rule.selectors.length === 1
 const countNewLine = str => str.split(NEW_LINE).length - 1
-const getIndent = node => TWO_SPACES.repeat(getDepth(node))
+const getIndent = node => TARGET_INDENT.repeat(getDepth(node))
 
 const getDepth = node => {
   let parent = node.parent

@@ -143,7 +143,7 @@ postcss([scssfmt.plugin()])
 
 ## Rules for formatting
 
-- 2 spaces indentation
+- 4 spaces indentation
 - require 1 space between a simple selector and combinator
 - require new line between selectors
 - require 1 space between selectors and `{`
